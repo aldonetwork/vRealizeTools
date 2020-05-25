@@ -2,7 +2,7 @@
 $config=array()
 $config["vr_server"]="myvrealizeinstance.mydomain.org";
 $config["vr_user"]="admin";
-$config["vr_password"]="myPassword";
+$config["vr_password"]="myVrPassword";
 
 $config["tmp_login_file"]="/tmp/vrops_login.dat";
 
