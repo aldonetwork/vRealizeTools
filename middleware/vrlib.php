@@ -15,8 +15,8 @@ function vrops_get_token(){
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json","Accept: application/json"));
 	$data=array();
-	$data["username"]=$vrops_user;
-	$data["password"]=$vrops_password;
+	$data["username"]=$config["vr_user"];
+	$data["password"]=$config["vr_user"];
 	$data_string = json_encode($data);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
 	$result = curl_exec($ch);
