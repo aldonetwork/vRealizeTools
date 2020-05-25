@@ -41,7 +41,7 @@ function vr_post_data($path,$postData){
 	return $result;
 }
 
-function vr_generate_token($vr_objectId){
+function pg_generate_token($vr_objectId){
 	global $config;
 	$dbconn = pg_connect("host=".$config["pg_host"]." port=".$config["pg_port"]." dbname=".$config["pg_dbname"]." user=".$config["pg_user"]." password=".$config["pg_password"]);
 	$token=generateRandomString(32);
@@ -51,4 +51,11 @@ function vr_generate_token($vr_objectId){
 	return $token;
 }
 
+function pg_get_tokenData($token){
+	global $config;
+	$dbconn = pg_connect("host=".$config["pg_host"]." port=".$config["pg_port"]." dbname=".$config["pg_dbname"]." user=".$config["pg_user"]." password=".$config["pg_password"]);
+	pg_prepare($dbconn, "getToken", 'SELECT * FROM vr_tokens WHERE token = $1');
+	$result=pg_execute($dbconn, "getToken", array($token));
+	return pg_fetch_all ( $result  );
+}
 ?>
