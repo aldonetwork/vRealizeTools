@@ -1,6 +1,6 @@
 <?php
 require_once("./config_inc.php");
-function vrops_get_token(){
+function vr_get_login_token(){
 	global $config;
 	if(file_exists($config["tmp_login_file"])){
 		$token=json_decode(file_get_contents($config["tmp_login_file"]), $assoc = true);
