@@ -1,15 +1,15 @@
 <?php
 require_once("./config_inc.php");
 function vrops_get_token(){
-
-	if(file_exists($tmp_login_file)){
-		$token=json_decode(file_get_contents($tmp_login_file), $assoc = true);
+	global $config;
+	if(file_exists($config["tmp_login_file"])){
+		$token=json_decode(file_get_contents($config["tmp_login_file"]), $assoc = true);
 		if(($token["validity"]/1000)>time()){
 			return $token["token"];
 		}
 	}
 	$ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://".$vrops_server."/suite-api/api/auth/token/acquire");
+        curl_setopt($ch, CURLOPT_URL, "https://".$config["vr_server"]."/suite-api/api/auth/token/acquire");
         //curl_setopt($ch, CURLOPT_HEADER, TRUE);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
