@@ -1,2 +1,2 @@
-# vRealizeTools
-  examples of bad written code to integrate your vRealize instance
+# vRealizeTools/middleware
+Small php middleware utility to collect custom metrics and other stuff
