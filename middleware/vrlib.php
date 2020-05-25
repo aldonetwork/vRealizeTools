@@ -41,5 +41,13 @@ function vr_post_data($path,$postData){
 	return $result;
 }
 
+function generateToken($vrops_objectId){
+	global $config;
+	$dbconn = pg_connect("host=".$config["pg_host"]." port=".$config["pg_port"]." dbname=".$config["pg_dbname"]." user=".$config["pg_user"]." password=".$config["pg_password"]);
+	$token=generateRandomString(32);
+	pg_prepare($dbconn, "generateToken", 'INSERT INTO vr_tokens (token, vr_object) VALUES ($1,$2)');
+	$result=pg_execute($dbconn, "generateToken", array($token,$vrops_objectId));
+	return $token;
+}
 
 ?>
