@@ -1,11 +1,10 @@
 <?php
 $config=array()
 $config["vr_serve"]r="myvrealizeinstance.mydomain.org";
-$vrops["vr_user"]="admin";
-$vrops["vr_password"]=myPassword";
+$config["vr_user"]="admin";
+$config["vr_password"]=myPassword";
 
-$tmp_login_file="/tmp/vrops_login.dat";
-
+$config["tmp_login_file"]="/tmp/vrops_login.dat";
 
 $config["pg_host"]="localhost";
 $config["pg_port"]="5432";
