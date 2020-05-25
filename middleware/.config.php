@@ -1,12 +1,15 @@
-$vrops_server="myvrealizeinstance.mydomain.org";
-$vrops_user="admin";
-$vrops_password=myPassword";
+<?php
+$config=array()
+$config["vr_serve"]r="myvrealizeinstance.mydomain.org";
+$vrops["vr_user"]="admin";
+$vrops["vr_password"]=myPassword";
 
 $tmp_login_file="/tmp/vrops_login.dat";
 
 
-$pg_host="localhost";
-$pg_port="5432";
-$pg_dbname="vrmiddleware";
-$pg_user="vrmiddleware";
-$pg_password="myDbPassword";
+$config["pg_host"]="localhost";
+$config["pg_port"]="5432";
+$config["pg_dbname"]="vrmiddleware";
+$config["pg_user"]="vrmiddleware";
+$config["pg_password"]="myDbPassword";
+?>
