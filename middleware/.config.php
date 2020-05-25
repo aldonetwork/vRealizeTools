@@ -1,5 +1,5 @@
 <?php
-$config=array()
+$config=array();
 $config["vr_server"]="myvrealizeinstance.mydomain.org";
 $config["vr_user"]="admin";
 $config["vr_password"]="myVrPassword";
