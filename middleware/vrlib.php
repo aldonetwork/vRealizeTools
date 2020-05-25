@@ -24,4 +24,22 @@ function vr_get_login_token(){
 	$token=json_decode($result, $assoc = true);
 	return $token["token"];
 }
+
+
+function vr_post_data($path,$postData){
+	global $config;
+	$token=vr_get_login_token();
+	$ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://".$config["vr_server"].$path);
+        //curl_setopt($ch, CURLOPT_HEADER, TRUE);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json","Accept: application/json","Authorization: vRealizeOpsToken $token"));
+	//curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+	curl_setopt($ch, CURLOPT_POSTFIELDS,$postData);
+	$result = curl_exec($ch);
+	return $result;
+}
+
+
 ?>
